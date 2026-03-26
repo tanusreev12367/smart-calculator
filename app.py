@@ -201,6 +201,18 @@ elif menu == "App Hub And Feedback":
                 st.success(f"Thank you, {name}! Your feedback has been 'saved' for the next update.")
             else:
                 st.warning("Please enter your name before submitting.")
+                st.write("---")
+    st.write("📫 **Direct Contact**")
+    # Replace the email below with your real one!
+    email_address = "tanusreevenkatesh@gmail.com" 
+    st.markdown(f'''
+        <a href="mailto:{tanusreevenkatesh@gmail.com}?subject=Calculator Feedback" style="text-decoration:none;">
+            <button style="background-color:#ff4b4b; color:white; border:none; padding:10px 20px; border-radius:5px; cursor:pointer;">
+                Email Me Directly
+            </button>
+        </a>
+    ''', unsafe_allow_html=True)
+
 
     st.divider()
 
