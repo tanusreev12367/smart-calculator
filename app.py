@@ -90,7 +90,7 @@ def plot_graph(data, graph_type):
 # -------------------------
 
 menu = st.sidebar.selectbox("Choose Feature", [
-    "About" , "Calculator", "Statistics + Graph", "QR Code Generator"
+    "About" , "Calculator", "Statistics + Graph", "Length Converter", "Time Converter", "Temperature Converter","QR Generator"
 ])
 
 # -------------------------
@@ -168,22 +168,22 @@ elif menu == "About":
     Developed with Streamlit, this app is designed to be user-friendly and accessible for everyone, whether you're a student, professional, or just someone who loves numbers!
     
     **Features:**
-    - Basic arithmetic operations (add, subtract, multiply, divide)
-    - Scientific functions (trigonometry, logarithms, factorials)
-    - Comprehensive statistics (mean, median, mode, variance, etc.)
-    - Graphical visualization (line, bar, pie charts)
+    - Basic arithmetic operations (Addition, Subtraction, Multiplication, Division)
+    - Scientific functions (Trigonometry, Logarithms, Factorials)
+    - Comprehensive statistics (Mean, Median, Mode, Variance, etc.)
+    - Graphical visualization (Line, Bar, Pie Charts)
     
     Feel free to explore and make the most out of this smart calculator! 🚀
     """)
 
 elif menu =="QR Code Generator":
     st.header("📱 QR Code Generator")
-    url = "https://Smart-Calculator-2-0.streamlit.app"
+    url = "https://smart-calculator-2-0.streamlit.app"
     img = qrcode.make(url)
     buf = io.BytesIO()
     img.save(buf, format='PNG')
-    byte_im = buf.getvalue()
-    st.image(byte_im, caption="Point your phone camera here", width=300)
+    buf=seek(0)
+    st.image(buf, caption="Point your phone camera here", width=300)
 
 elif menu =="Length Converter":
     st.header("📏 Length Converter")
