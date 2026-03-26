@@ -206,7 +206,7 @@ elif menu == "App Hub And Feedback":
     # Replace the email below with your real one!
     email_address = "tanusreevenkatesh@gmail.com" 
     st.markdown(f'''
-        <a href="mailto:{tanusreevenkatesh@gmail.com}?subject=Calculator Feedback" style="text-decoration:none;">
+        <a href="mailto:{email_address}?subject=Calculator Feedback" style="text-decoration:none;">
             <button style="background-color:#ff4b4b; color:white; border:none; padding:10px 20px; border-radius:5px; cursor:pointer;">
                 Email Me Directly
             </button>
