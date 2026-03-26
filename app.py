@@ -175,7 +175,7 @@ elif menu == "About":
     Feel free to explore and make the most out of this smart calculator! 🚀
     """)
 
-elif menu == "App Hub & Feedback":
+elif menu == "App Hub And Feedback":
     st.header("🚀 App Hub")
     
     # 1. Share Section
