@@ -185,5 +185,85 @@ elif menu =="QR Code Generator":
     byte_im = buf.getvalue()
     st.image(byte_im, caption="Point your phone camera here", width=300)
 
+elif menu =="Length Converter":
+    st.header("📏 Length Converter")
+    st.write("Convert between different length units")
+
+    units = ["Meters", "Kilometers", "Miles", "Feet", "Inches"]
+    from_unit = st.selectbox("From Unit", units)
+    to_unit = st.selectbox("To Unit", units)
+    value = st.number_input("Enter value to convert")
+
+    conversion_factors = {
+        "Meters": 1,
+        "Kilometers": 0.001,
+        "Miles": 0.000621371,
+        "Feet": 3.28084,
+        "Inches": 39.3701
+    }
+
+    if st.button("Convert"):
+        try:
+            result = value * (conversion_factors[to_unit] / conversion_factors[from_unit])
+            st.success(f"{value} {from_unit} is equal to {result:.4f} {to_unit}")
+        except:
+            st.error("Conversion error! Please check your input.")
+
+elif menu =="Time Converter":
+    st.header("⏰ Time Converter")
+    st.write("Convert between different time units")
+
+    time_units = ["Seconds", "Minutes", "Hours", "Days"]
+    from_time_unit = st.selectbox("From Time Unit", time_units)
+    to_time_unit = st.selectbox("To Time Unit", time_units)
+    time_value = st.number_input("Enter time value to convert")
+
+    time_conversion_factors = {
+        "Seconds": 1,
+        "Minutes": 60,
+        "Hours": 3600,
+        "Days": 86400
+    }
+
+    if st.button("Convert Time"):
+        try:
+            converted_time = time_value * (time_conversion_factors[to_time_unit] / time_conversion_factors[from_time_unit])
+            st.success(f"{time_value} {from_time_unit} is equal to {converted_time:.4f} {to_time_unit}")
+        except:
+            st.error("Conversion error! Please check your input.")
+elif menu =="Temperature Converter":
+    st.header("🌡️ Temperature Converter")
+    st.write("Convert between different temperature units")
+
+    temp_units = ["Celsius", "Fahrenheit", "Kelvin"]
+    from_temp_unit = st.selectbox("From Temperature Unit", temp_units)
+    to_temp_unit = st.selectbox("To Temperature Unit", temp_units)
+    temp_value = st.number_input("Enter temperature value to convert")
+
+    def convert_temperature(value, from_unit, to_unit):
+        if from_unit == to_unit:
+            return value
+        elif from_unit == "Celsius":
+            if to_unit == "Fahrenheit":
+                return (value * 9/5) + 32
+            elif to_unit == "Kelvin":
+                return value + 273.15
+        elif from_unit == "Fahrenheit":
+            if to_unit == "Celsius":
+                return (value - 32) * 5/9
+            elif to_unit == "Kelvin":
+                return (value - 32) * 5/9 + 273.15
+        elif from_unit == "Kelvin":
+            if to_unit == "Celsius":
+                return value - 273.15
+            elif to_unit == "Fahrenheit":
+                return (value - 273.15) * 9/5 + 32
+
+    if st.button("Convert Temperature"):
+        try:
+            converted_temp = convert_temperature(temp_value, from_temp_unit, to_temp_unit)
+            st.success(f"{temp_value} {from_temp_unit} is equal to {converted_temp:.2f} {to_temp_unit}")
+        except:
+            st.error("Conversion error! Please check your input.")
 
     
